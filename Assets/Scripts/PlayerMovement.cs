@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player_Movement : MonoBehaviour {
+public class PlayerMovement : MonoBehaviour {
 
 	// Use this for initialization
 	Vector3 pos;                                // For movement
