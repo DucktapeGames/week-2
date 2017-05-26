@@ -40,7 +40,7 @@
 		public float experience; 
 
 		public MonsterData(){
-			available = false; 
+			available = "false"; 
 			health = 100f; 
 			experience = 0; 
 
