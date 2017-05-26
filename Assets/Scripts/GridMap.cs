@@ -43,4 +43,12 @@ public class GridMap : MonoBehaviour {
             0
         );
     }
+
+	void OnDrawGizmos() {
+		for(int i = 0; i < width; i++) {
+			for(int j = 0; j < height; j++) {
+				Gizmos.DrawWireCube(ToWorldPosition(new Vector2(i, j)), Vector3.one * sideLength);
+			}
+		}
+	}
 }
