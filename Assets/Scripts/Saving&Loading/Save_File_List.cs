@@ -27,19 +27,19 @@ public class Save_File_List : MonoBehaviour {
 	}
 
 
-	void LoadData(int index){
+	public void LoadData(int index){
 		Current_Saved_Data_Reference.playtime = PlayerPrefs.GetFloat (Keys.dataKey (index)); 
 		Current_Saved_Data_Reference.playerPosition.x = PlayerPrefs.GetFloat (Keys.playerPositionx(index)); 
 		Current_Saved_Data_Reference.playerPosition.y = PlayerPrefs.GetFloat (Keys.playerPositiony (index)); 
 		for (int n = 0; n < Current_Saved_Data_Reference.npcStates.Length; n++) {
 			Current_Saved_Data_Reference.npcStates [n] = PlayerPrefs.GetInt (Keys.npcstate (index, n)); 
-			Current_Saved_Data_Reference.npcPositions [n].x = PlayerPrefs.GetInt (Keys.npcpositionx); 
-			Current_Saved_Data_Reference.npcPositions [n].y = PlayerPrefs.GetInt (Keys.npcpositiony);
+			Current_Saved_Data_Reference.npcPositions [n].x = PlayerPrefs.GetInt (Keys.npcpositionx(index, n)); 
+			Current_Saved_Data_Reference.npcPositions [n].y = PlayerPrefs.GetInt (Keys.npcpositiony(index, n));
 		}
 		for (int n = 0; n < Current_Saved_Data_Reference.monster.Length; n++) {
-			Current_Saved_Data_Reference.monster [n].available = PlayerPrefs.GetString (Keys.monsterAvailable); 
-			Current_Saved_Data_Reference.monster [n].health = PlayerPrefs.GetFloat (Keys.monsterHealth); 
-			Current_Saved_Data_Reference.monster [n].experience = PlayerPrefs.GetFloat (Keys.monsterExperience); 
+			Current_Saved_Data_Reference.monster [n].available = PlayerPrefs.GetString (Keys.monsterAvailable(index, n)); 
+			Current_Saved_Data_Reference.monster [n].health = PlayerPrefs.GetFloat (Keys.monsterHealth(index, n)); 
+			Current_Saved_Data_Reference.monster [n].experience = PlayerPrefs.GetFloat (Keys.monsterExperience(index, n)); 
 
 		}
 	}
