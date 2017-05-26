@@ -5,26 +5,34 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour {
 
 	// Use this for initialization
-	Vector3 pos;                                // For movement
- 	public float speed;                         // Speed of movement
+	Vector3 worldPosition; // For movement
+    Vector2 mapPosition;
+ 	public float speed;   // Speed of movement
+    public GridMap map;
      
-     void Start () {
-         pos = transform.position;          // Take the initial position
-     }
- 
-     void FixedUpdate () {
-         if(Input.GetKey(KeyCode.A) && transform.position == pos) {        // Left
-             pos += Vector3.left;
-         }
-         if(Input.GetKey(KeyCode.D) && transform.position == pos) {        // Right
-             pos += Vector3.right;
-         }
-         if(Input.GetKey(KeyCode.W) && transform.position == pos) {        // Up
-             pos += Vector3.up;
-         }
-         if(Input.GetKey(KeyCode.S) && transform.position == pos) {        // Down
-             pos += Vector3.down;
-         }
-         transform.position = Vector3.MoveTowards(transform.position, pos, Time.deltaTime * speed);    // Move there
-     }
+    void Start () {
+        // Take the initial position
+        mapPosition = map.ToMapPosition(transform.position);
+        worldPosition = map.ToWorldPosition(mapPosition);
+    }
+
+    void FixedUpdate () {
+        if(Input.GetKey(KeyCode.A) && map.ToWorldPosition(mapPosition) == worldPosition) {        // Left
+            mapPosition += Vector2.left;
+            worldPosition = map.ToWorldPosition(mapPosition);
+        }
+        if(Input.GetKey(KeyCode.D) &&  map.ToWorldPosition(mapPosition) == worldPosition) {        // Right
+            mapPosition += Vector2.right;
+            worldPosition = map.ToWorldPosition(mapPosition);
+        }
+        if(Input.GetKey(KeyCode.W) &&  map.ToWorldPosition(mapPosition) == worldPosition) {        // Up
+            mapPosition += Vector2.up;
+            worldPosition = map.ToWorldPosition(mapPosition);
+        }
+        if(Input.GetKey(KeyCode.S) &&  map.ToWorldPosition(mapPosition) == worldPosition) {        // Down
+            mapPosition += Vector2.down;
+            worldPosition = map.ToWorldPosition(mapPosition);
+        }
+        transform.position = Vector3.MoveTowards(transform.position, worldPosition, Time.deltaTime * speed);    // Move there
+    }
 }
