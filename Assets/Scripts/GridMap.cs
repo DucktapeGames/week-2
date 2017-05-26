@@ -30,17 +30,17 @@ public class GridMap : MonoBehaviour {
 	}
 
 	public Vector2 ToMapPosition(Vector3 worldPosition) {
-		return new Vector2(
-			Mathf.Floor(worldPosition.x + 0.5f * width * sideLength + transform.position.x),
-			Mathf.Floor(worldPosition.y - 0.5f * height * sideLength + transform.position.y)
-		);
-	}
+        return new Vector2(
+            (int) (((worldPosition.x - transform.position.x) / sideLength) + width * 0.5f),
+            (int) (height * 0.5f - ((worldPosition.y - transform.position.y) / sideLength))
+        );
+    }
 
-	public Vector3 ToWorldPosition(Vector2 mapPosition) {
-		return new Vector3(
-			(mapPosition.x + transform.position.x - 0.5f * width) * sideLength,
-			(mapPosition.y + transform.position.y - 0.5f * height) * sideLength,
-			0
-		);
-	}
+    public Vector3 ToWorldPosition(Vector2 mapPosition) {
+        return new Vector3(
+            transform.position.x + (mapPosition.x - width * 0.5f) * sideLength,
+            transform.position.y + (height * 0.5f - mapPosition.y) * sideLength,
+            0
+        );
+    }
 }

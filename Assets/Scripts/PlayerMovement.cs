@@ -25,11 +25,11 @@ public class PlayerMovement : MonoBehaviour {
             mapPosition += Vector2.right;
             worldPosition = map.ToWorldPosition(mapPosition);
         }
-        if(Input.GetKey(KeyCode.W) &&  map.ToWorldPosition(mapPosition) == worldPosition) {        // Up
+        if(Input.GetKey(KeyCode.S) &&  map.ToWorldPosition(mapPosition) == worldPosition) {        // Up
             mapPosition += Vector2.up;
             worldPosition = map.ToWorldPosition(mapPosition);
         }
-        if(Input.GetKey(KeyCode.S) &&  map.ToWorldPosition(mapPosition) == worldPosition) {        // Down
+        if(Input.GetKey(KeyCode.W) &&  map.ToWorldPosition(mapPosition) == worldPosition) {        // Down
             mapPosition += Vector2.down;
             worldPosition = map.ToWorldPosition(mapPosition);
         }
