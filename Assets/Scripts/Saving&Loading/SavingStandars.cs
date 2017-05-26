@@ -7,11 +7,11 @@
 		public static string dataKey(int savefilenumber){
 			return "savedata" + savefilenumber.ToString(); 
 		}
-		public static string playerPositionx(int savefilenumber, int subindex){
-			return "savedata" + savefilenumber.ToString() + "playerposx" + subindex.ToString(); 
+		public static string playerPositionx(int savefilenumber){
+			return "savedata" + savefilenumber.ToString() + "playerposx"; 
 		}
-		public static string playerPositiony(int savefilenumber, int subindex){
-			return "savedata" + savefilenumber.ToString() + "playerposy" + subindex.ToString(); 
+		public static string playerPositiony(int savefilenumber){
+			return "savedata" + savefilenumber.ToString() + "playerposy"; 
 		}
 		public static string monsterAvailable(int savefilenumber, int subindex){
 			return "savedata" + savefilenumber.ToString() + "monsterav" + subindex.ToString(); 
@@ -31,6 +31,28 @@
 		public static string npcpositiony(int savefilenumber, int subindex){
 			return "savedata" + savefilenumber.ToString() + "npcposy" + subindex.ToString(); 
 		}
+	}
+
+
+	public class MonsterData{
+		public string available; 
+		public float health; 
+		public float experience; 
+
+		public MonsterData(){
+			available = false; 
+			health = 100f; 
+			experience = 0; 
+
+		}
+
+		public MonsterData(string _available, float _health, float _experienc){
+			available  = _available; 
+			health = _health; 
+			experience = _experienc; 
+
+		}
+
 	}
 
 
