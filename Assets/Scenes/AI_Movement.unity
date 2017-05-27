@@ -395,4 +395,5 @@ MonoBehaviour:
   target: {x: 0, y: 0}
   map: {fileID: 812143845}
   speed: 2
+  movementEpsilon: 0.01
   drawDebugPath: 0

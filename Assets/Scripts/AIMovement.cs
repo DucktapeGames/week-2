@@ -7,6 +7,7 @@ public class AIMovement : MonoBehaviour {
 	public Vector2 target;
 	public GridMap map;
 	public float speed;
+	public float movementEpsilon;
 	public bool drawDebugPath;
 
 	private int part;
@@ -62,7 +63,7 @@ public class AIMovement : MonoBehaviour {
 			if(path != null && part < path.Count) {
 				var sqrDistance = (transform.position - nextPoint).sqrMagnitude;
 
-				if (sqrDistance > 0.001f) {
+				if (sqrDistance > movementEpsilon) {
 					transform.position += (nextPoint - transform.position).normalized
 					* speed
 					* Time.deltaTime;
