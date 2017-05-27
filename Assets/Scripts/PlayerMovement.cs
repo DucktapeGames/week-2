@@ -24,25 +24,33 @@ public class PlayerMovement : MonoBehaviour {
 
     IEnumerator DetectInput() {
         while(true) {
-            if(Input.GetKey(KeyCode.A) && map.ToWorldPosition(mapPosition) == worldPosition && !flag) {        // Left
-                mapPosition += Vector2.left;
-                worldPosition = map.ToWorldPosition(mapPosition);
-                flag = true;
+            if(Input.GetKey(KeyCode.A) && map.ToWorldPosition(mapPosition) == worldPosition && !flag) {       // Left
+               if(map.At(mapPosition + Vector2.left).IsWalkable()) {
+                    mapPosition += Vector2.left;
+                    worldPosition = map.ToWorldPosition(mapPosition);
+                    flag = true;
+               }
             }
             else if(Input.GetKey(KeyCode.D) &&  map.ToWorldPosition(mapPosition) == worldPosition && !flag) {        // Right
-                mapPosition += Vector2.right;
-                worldPosition = map.ToWorldPosition(mapPosition);
-                flag = true;
+                if(map.At(mapPosition + Vector2.right).IsWalkable()) {
+                    mapPosition += Vector2.right;
+                    worldPosition = map.ToWorldPosition(mapPosition);
+                    flag = true;
+                }
             }
             else if(Input.GetKey(KeyCode.S) &&  map.ToWorldPosition(mapPosition) == worldPosition && !flag) {        // Up
-                mapPosition += Vector2.up;
-                worldPosition = map.ToWorldPosition(mapPosition);
-                flag = true;
+                if(map.At(mapPosition + Vector2.up).IsWalkable()) {
+                    mapPosition += Vector2.up;
+                    worldPosition = map.ToWorldPosition(mapPosition);
+                    flag = true;
+                }
             }
             else if(Input.GetKey(KeyCode.W) &&  map.ToWorldPosition(mapPosition) == worldPosition && !flag) {        // Down
-                mapPosition += Vector2.down;
-                worldPosition = map.ToWorldPosition(mapPosition);
-                flag = true;
+                if(map.At(mapPosition + Vector2.down).IsWalkable()) {
+                    mapPosition += Vector2.down;
+                    worldPosition = map.ToWorldPosition(mapPosition);
+                    flag = true;
+                }
             }
 
             if((transform.position - worldPosition).magnitude < 0.02) {

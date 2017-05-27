@@ -31,6 +31,11 @@ public class GridMap : MonoBehaviour {
 	}
 
 	public GridNode At(Vector2 pos) {
+		if(pos.x > width || pos.y > height || pos.x < 0 || pos.y < 0) {
+			var emptyNode = new GridNode();
+			emptyNode.type = GridNode.NodeType.Obstacle;
+			return emptyNode;
+		}
 		return grid [(int) pos.x, (int) pos.y];
 	}
 
