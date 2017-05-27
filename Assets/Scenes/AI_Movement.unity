@@ -149,8 +149,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 487b67e00309042dc9311cd442e8bc0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  width: 50
-  height: 50
+  width: 15
+  height: 10
   sideLength: 1
 --- !u!23 &812143846
 MeshRenderer:
@@ -282,8 +282,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1864340329}
   - component: {fileID: 1864340328}
-  - component: {fileID: 1864340331}
   - component: {fileID: 1864340330}
+  - component: {fileID: 1864340332}
   m_Layer: 0
   m_Name: NPC
   m_TagString: Untagged
@@ -361,7 +361,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &1864340331
+--- !u!114 &1864340332
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -369,6 +369,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1864340327}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0286688538354f249819a56da3016cf, type: 3}
+  m_Script: {fileID: 11500000, guid: 5604b957d27974e9897bed2c7d90732d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  target: {x: 0, y: 0}
+  map: {fileID: 812143845}
+  speed: 1

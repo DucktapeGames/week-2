@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 
-[System.Serializable]
 public class GridNode {
 	public Sprite sprite;
 	public NodeType type;

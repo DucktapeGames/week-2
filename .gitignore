@@ -377,4 +377,11 @@ __pycache__/
 *.odx.cs
 *.xsd.cs
 
+### VisualStudioCode ###
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
 # End of https://www.gitignore.io/api/macos,unity,windows,monodevelop,visualstudio
