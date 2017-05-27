@@ -35,17 +35,25 @@ public class GridMap : MonoBehaviour {
 	}
 
 	public Vector2 ToMapPosition(Vector3 worldPosition) {
-		return new Vector2(
-			(int) (((worldPosition.x - transform.position.x) / sideLength) + width * 0.5f),
-			(int) (height * 0.5f - ((worldPosition.y - transform.position.y) / sideLength))
-		);
-	}
+        return new Vector2(
+            (int) (((worldPosition.x - transform.position.x) / sideLength) + width * 0.5f),
+            (int) (height * 0.5f - ((worldPosition.y - transform.position.y) / sideLength))
+        );
+    }
 
-	public Vector3 ToWorldPosition(Vector2 mapPosition) {
-		return new Vector3(
-			transform.position.x + (mapPosition.x - width * 0.5f) * sideLength,
-			transform.position.y + (height * 0.5f - mapPosition.y) * sideLength,
-			0
-		);
+    public Vector3 ToWorldPosition(Vector2 mapPosition) {
+        return new Vector3(
+            transform.position.x + (mapPosition.x - width * 0.5f) * sideLength,
+            transform.position.y + (height * 0.5f - mapPosition.y) * sideLength,
+            0
+        );
+    }
+
+	void OnDrawGizmos() {
+		for(int i = 0; i < width; i++) {
+			for(int j = 0; j < height; j++) {
+				Gizmos.DrawWireCube(ToWorldPosition(new Vector2(i, j)), Vector3.one * sideLength);
+			}
+		}
 	}
 }
